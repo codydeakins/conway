@@ -5,7 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace conway.Core
-{public enum CellState
+{
+    public enum CellState
     {
         Dead,
         Alive
@@ -13,5 +14,27 @@ namespace conway.Core
     public class Cell
     {
         public CellState State { get; set; }
+
+        public char DisplayCharacter
+        {
+            get
+            {
+                //if dead
+                //   display '.'
+                //otherwise
+                //  return '#'
+                if (State == CellState.Dead)
+                {
+                    return '.';
+                }
+
+                else {
+                    return '#';
+                }
+
+            }
+
+        }
     }
 }
+

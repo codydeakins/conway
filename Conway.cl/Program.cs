@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace Conway.cl
 {
@@ -13,15 +14,21 @@ namespace Conway.cl
         {
             var world = new World(40, 16);
 
-            Console.WriteLine("The world is {0} by {1} big ", world.Width, world.Height);
-
-            var neighbors = world.NeighborsFor(40, 16);
-            Console.WriteLine("(1,1) has {0} neighbors", neighbors.Count);
 
 
 
 
+            world.RandomizeCells();
 
+            while (true)
+            {
+                Console.Clear();
+
+                world.Display();
+                world.Step();
+
+                Thread.Sleep(100);
+            }
 
 
 
