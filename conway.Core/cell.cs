@@ -10,7 +10,7 @@ namespace conway.Core
         Dead,
         Alive
     }
-    class Cell
+    public class Cell
     {
         public CellState State { get; set; }
     }

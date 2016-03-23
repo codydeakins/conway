@@ -24,7 +24,7 @@ namespace conway.Core
             InitializeCells();
         }
 
-        
+
         private void InitializeCells()
         {
             for (int w = 0; w < _width; w++)
@@ -36,6 +36,73 @@ namespace conway.Core
                 }
             }
         }
+
+        public List<Cell> NeighborsFor(int x, int y)
+        {
+            var neighbors = new List<Cell>();
+
+
+            if (IsValidLocations(x - 1, y - 1))
+            {
+                neighbors.Add(_cells[x - 1, y - 1]);
+            }
+
+
+            if (IsValidLocations(x, y - 1))
+            {
+                neighbors.Add(_cells[x, y - 1]);
+            }
+
+            if (IsValidLocations(x + 1, y - 1))
+            {
+                neighbors.Add(_cells[x + 1, y - 1]);
+            }
+            if (IsValidLocations(x - 1, y))
+            {
+                neighbors.Add(_cells[x - 1, y]);
+            }
+            if (IsValidLocations(x + 1, y))
+            {
+                neighbors.Add(_cells[x + 1, y]);
+            }
+            if (IsValidLocations(x - 1, y + 1))
+            {
+                neighbors.Add(_cells[x - 1, y + 1]);
+            }
+
+            if (IsValidLocations(x, y + 1))
+            {
+                neighbors.Add(_cells[x, y + 1]);
+            }
+
+            if (IsValidLocations(x + 1, y + 1))
+            {
+                neighbors.Add(_cells[x + 1, y + 1]);
+            }
+
+
+
+
+
+
+            return neighbors;
+        }
+
+        private bool IsValidLocations(int x, int y)
+        {
+            if (x < 0 || x >= _width)
+                return false;
+
+
+            if (y < 0 || y >= _height)
+                return false;
+
+            return true;
+        }
+
+
+
+
 
 
 
